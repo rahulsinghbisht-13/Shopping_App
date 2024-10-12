@@ -8,7 +8,7 @@ export const CartContext = createContext({
   updateCartItemQuantity: () => {},
 });
 
-function shoppingCartReducer(state, action) {
+const shoppingCartReducer = (state, action) => {
   if (action.type === "ADD_ITEM") {
     const updatedItems = [...state.items];
 
@@ -66,9 +66,9 @@ function shoppingCartReducer(state, action) {
   }
 
   return state;
-}
+};
 
-export default function CartContextProvider({ children }) {
+export function CartContextProvider({ children }) {
   const [shoppingCartState, shoppingCartDispatch] = useReducer(
     shoppingCartReducer,
     {
